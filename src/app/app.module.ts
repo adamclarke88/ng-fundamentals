@@ -8,17 +8,28 @@ import { TestComponent } from './test/test.component';
 import { NavBarComponent } from './nav/navbar.component'
 import { EventService } from './events/shared/event.service'
 import { ToastrService } from './common/toastr.service'
+import { EventDetailsComponent } from './events/event-details/event-details.component';
+
+
+import { appRoutes } from './routes'
+import { RouterModule } from '@angular/router';
+import { CreateEventComponent } from './events/create-event.component';
+import { Error404Component } from './errors/404.component';
 
 @NgModule({
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   declarations: [
     EventsAppComponent,
     EventsListComponent,
     EventThumbnailComponent,
     NavBarComponent,
-    TestComponent
+    EventDetailsComponent,
+    TestComponent,
+    CreateEventComponent,
+    Error404Component
   ],
   providers: [EventService, ToastrService],
   bootstrap: [EventsAppComponent]

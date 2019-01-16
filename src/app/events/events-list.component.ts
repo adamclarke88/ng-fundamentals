@@ -11,7 +11,7 @@ declare let toastr
             <h1>Upcoming Angular Events</h1> 
             <hr/>
             <div class="row">
-                <div *ngFor="let event of events" class="col-md-6">
+                <div [routerLink]="['/events', event.id]" *ngFor="let event of events" class="col-md-6">
                     <event-thumbnail (click)="handleThumbnailClick(event.name)" [event]="event"></event-thumbnail>
                 </div>
             </div>

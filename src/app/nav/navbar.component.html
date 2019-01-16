@@ -7,9 +7,9 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li>
-            <a >All Events</a>
+            <a [routerLink]="'events'">All Events</a>
           </li>
-          <li><a href="">Create Event</a></li>
+          <li><a [routerLink]="'events/new'">Create Event</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
               Events
@@ -17,10 +17,10 @@
             </a>
             <ul class="dropdown-menu">
               <li >
-                <a href="">Angular Connect</a>
+                <a [routerLink]="'events/new'">Angular Connect</a>
               </li>
               <li >
-                <a href="">Test Dropdown</a>
+                <a [routerLink]="'events/test'">Test Dropdown</a>
               </li>
             </ul>
           </li>

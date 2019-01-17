@@ -15,6 +15,7 @@ import { appRoutes } from './routes'
 import { RouterModule } from '@angular/router';
 import { CreateEventComponent } from './events/create-event.component';
 import { Error404Component } from './errors/404.component';
+import { EventRouteActivator } from './events/event-details/event-route-activator.service';
 
 @NgModule({
   imports: [
@@ -31,7 +32,23 @@ import { Error404Component } from './errors/404.component';
     CreateEventComponent,
     Error404Component
   ],
-  providers: [EventService, ToastrService],
+  providers: [
+    EventService, 
+    ToastrService, 
+    EventRouteActivator,
+    {
+      provide: 'canDeactivateCreateEvent',
+      useValue: checkDirtyState
+    }
+  ],
   bootstrap: [EventsAppComponent]
 })
-export class AppModule { }
+export class AppModule {}
+
+export function checkDirtyState(component: CreateEventComponent) {
+  if (component.isDirty)
+    return window.confirm("you have not saved this event, do you really want to cancel?")
+    return true
+}
+
+//isDirty is often used to defermine if something needs saved

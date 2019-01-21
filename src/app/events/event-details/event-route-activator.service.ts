@@ -17,7 +17,7 @@ export class EventRouteActivator implements CanActivate{
             this.router.navigate(['/404'])
         return eventExists
 
-        // it iwll return true meaning the route can be activiated if the event exists
+        // it will return true meaning the route can be activiated if the event exists
         // otherwise it will return false and route to the 404 page
     }
 

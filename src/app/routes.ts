@@ -3,6 +3,7 @@ import {
     EventsListComponent,
     EventDetailsComponent,
     CreateEventComponent,
+    CreateSessionComponent,
     EventRouteActivator
 } from './events/index'
 
@@ -16,7 +17,8 @@ export const appRoutes:Routes = [
     { path: 'events/test', component: TestComponent},
     { path: '404', component: Error404Component},
     { path: 'user', loadChildren: './user/user.module#UserModule'},
-// when a route starts with /user.. load the user module from this path
+    // when a route starts with /user.. load the user module from this path
+    { path: 'events/session/new', component: CreateSessionComponent},
     { path: '', redirectTo: '/events', pathMatch: 'full'},
     { path: 'events/:id', component: EventDetailsComponent, canActivate: [EventRouteActivator] },
 ]

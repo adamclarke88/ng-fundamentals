@@ -1,7 +1,7 @@
 <div class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" >ngEvents</a>
+        <a class="navbar-brand">ngEvents</a>
       </div>
   
       <div class="collapse navbar-collapse">
@@ -28,7 +28,8 @@
         <div class="navbar-header navbar-right">
           <ul class="nav navbar-nav">
             <li>
-              <a [routerLink]="['user/profile']">Welcome John</a>
+              <a *ngIf="!authService.isAuthenticated()" [routerLink]="['user/login']">Login</a>
+              <a *ngIf="authService.isAuthenticated()" [routerLink]="['user/profile']">Welcome {{authService.currentUser.firstName}}</a>
             </li>
           </ul>
         </div>
